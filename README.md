@@ -1,15 +1,9 @@
-# MDC Web + Lit Element + JSS
+# MDC Web + Lit Element + Sass
 
-Example app to demo using MDC Web with Lit Element Shadow-less Web Components and JSS.
-
-### Demo
-
-https://mdc-web-lit-demo.now.sh/
-
+MDC Web Native Web Components generated with Lit Element themed with Sass
 
 ### Run locally
 
 ```bash
-npm i
-npx parcel index.html
+npx rollup -c -w
 ```
