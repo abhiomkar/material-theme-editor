@@ -1,7 +1,7 @@
 import { customElement, html, LitElement, property, css, unsafeCSS } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
-// import './icon';
 import styles from './button.scss';
+import iconStyles from '../icon/icon.scss';
 
 @customElement('mdc-button')
 export class Button extends LitElement {
@@ -34,7 +34,7 @@ export class Button extends LitElement {
   }
 
   static get styles() {
-    return css`${unsafeCSS(styles)}`;
+    return [css`${unsafeCSS(styles)}`, css`${unsafeCSS(iconStyles)}`];
   }
 
   get iconTemplate() {
