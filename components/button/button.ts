@@ -2,6 +2,7 @@ import { customElement, html, LitElement, property, css, unsafeCSS } from 'lit-e
 import { classMap } from 'lit-html/directives/class-map';
 import styles from './button.scss';
 import iconStyles from '../icon/icon.scss';
+import {MDCRipple} from '@material/ripple';
 
 @customElement('mdc-button')
 export class Button extends LitElement {
@@ -26,12 +27,16 @@ export class Button extends LitElement {
   @property({type: String, reflect: true})
   density = 'default';
 
+  @property({type: String, reflect: true})
+  rounded = false;
+
   get rootClasses() {
     return classMap({
       'mdc-button': true,
       'mdc-button--raised': this.raised,
       'mdc-button--unelevated': this.unelevated,
       'mdc-button--outlined': this.outlined,
+      'is-rounded': this.rounded === true,
       'dense--3': this.density === '-3',
       'dense--2': this.density === '-2',
       'dense--1': this.density === '-1',
@@ -55,6 +60,10 @@ export class Button extends LitElement {
     return html`<span aria-hidden="true" class="material-icons mdc-button__icon">${this.icon}</span>`;
   }
 
+  firstUpdated() {
+    MDCRipple.attachTo(this.shadowRoot.querySelector('.mdc-button'));
+  }
+
   handleClick(e) {
     e.preventDefault();
   }
@@ -62,6 +71,7 @@ export class Button extends LitElement {
   render() {
     return html`
       <button class=${this.rootClasses} @click=${(e) => this.handleClick(e)}>
+        <div class="mdc-button__ripple"></div>
         ${this.iconTemplate}
         <span class="mdc-button__label"><slot></slot></span>
       </button>`;

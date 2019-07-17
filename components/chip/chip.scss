@@ -1,0 +1,16 @@
+@import "@material/chips/chip/mdc-chip.scss";
+@import "@material/chips/mixins";
+
+.mdc-chip {
+  &.dense-compact {
+    @include mdc-chip-density(compact);
+  }
+
+  &.dense-comfortable {
+    @include mdc-chip-density(comfortable);
+  }
+
+  &.dense-default {
+    @include mdc-chip-density(default);
+  }
+}

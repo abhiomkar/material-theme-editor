@@ -1,24 +1,39 @@
-@import "../../../material-components-web/packages/mdc-button/mdc-button.scss";
-
-@import "../../../material-components-web/packages/mdc-button/mixins";
+@import "@material/button/mdc-button.scss";
+@import "@material/button/mixins";
 
 .mdc-button {
   &.dense--3,
   &.dense-compact {
     @include mdc-button-density(-3);
+
+    &.is-rounded {
+      @include mdc-button-density(-3, $shape-radius: 50%);
+    }
   }
 
   &.dense--2,
   &.dense-comfortable {
     @include mdc-button-density(-2);
+
+    &.is-rounded {
+      @include mdc-button-density(-2, $shape-radius: 50%);
+    }
   }
 
   &.dense--1 {
     @include mdc-button-density(-1);
+
+    &.is-rounded {
+      @include mdc-button-density(-1, $shape-radius: 50%);
+    }
   }
 
   &.dense--0,
   &.dense-default {
     @include mdc-button-density(-0);
+
+    &.is-rounded {
+      @include mdc-button-density(0, $shape-radius: 50%);
+    }
   }
 }

@@ -1,0 +1,16 @@
+@import "@material/icon-button/mdc-icon-button.scss";
+@import "@material/icon-button/mixins";
+
+.mdc-icon-button {
+  &.dense-compact {
+    @include mdc-icon-button-density(compact);
+  }
+
+  &.dense-comfortable {
+    @include mdc-icon-button-density(comfortable);
+  }
+
+  &.dense-default {
+    @include mdc-icon-button-density(default);
+  }
+}

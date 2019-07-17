@@ -1,0 +1,26 @@
+@import "@material/checkbox/mdc-checkbox.scss";
+@import "@material/checkbox/mixins";
+@import "@material/typography/mixins";
+
+label {
+  @include mdc-typography(body2);
+}
+
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mdc-checkbox {
+  &.dense-compact {
+    @include mdc-checkbox-density(compact);
+  }
+
+  &.dense-comfortable {
+    @include mdc-checkbox-density(comfortable);
+  }
+
+  &.dense-default {
+    @include mdc-checkbox-density(default);
+  }
+}

@@ -1,4 +1,8 @@
-@import "../../../material-components-web/packages/mdc-theme/variables";
+@import "@material/theme/variables";
+
+:host {
+  display: inline-block;
+}
 
 .mdc-toggle-button-option {
   padding-left: 16px;
@@ -10,9 +14,18 @@
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-}
+  outline: none;
 
-.is-selected {
-  background-color: $mdc-theme-primary;
-  color: $mdc-theme-on-primary;
+  &:focus {
+    background-color: rgba($mdc-theme-primary, 0.1);
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+
+  &.is-selected {
+    background-color: $mdc-theme-primary;
+    color: $mdc-theme-on-primary;
+  }
 }

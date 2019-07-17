@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript';
 import sass from 'rollup-plugin-sass';
-import serve from 'rollup-plugin-serve';
+// import serve from 'rollup-plugin-serve';
 
 export default {
   input: './index.ts',
@@ -21,6 +21,6 @@ export default {
       },
       processor: (css) => ({css: css}),
     }),
-    serve('dist'),
+    // serve('dist'),
   ],
 };

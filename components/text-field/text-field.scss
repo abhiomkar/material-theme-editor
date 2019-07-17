@@ -1,1 +1,60 @@
-@import "@material/textfield/mdc-text-field";
+@import "@material/textfield/mdc-text-field.scss";
+@import "@material/textfield/mixins";
+@import "@material/notched-outline/mixins";
+@import "@material/floating-label/mixins";
+
+.mdc-text-field {
+  width: 100%;
+}
+
+.mdc-text-field--default {
+  &.dense-compact {
+    @include mdc-text-field-density(compact);
+
+    &.is-rounded {
+      @include mdc-text-field-density(compact, $shape-radius: 50%);
+    }
+  }
+
+  &.dense-comfortable {
+    @include mdc-text-field-density(comfortable);
+
+    &.is-rounded {
+      @include mdc-text-field-density(comfortable, $shape-radius: 50%);
+    }
+  }
+
+  &.dense-default {
+    @include mdc-text-field-density(default);
+
+    &.is-rounded {
+      @include mdc-text-field-density(default, $shape-radius: 50%);
+    }
+  }
+}
+
+.mdc-text-field--outlined {
+  &.dense-compact {
+    @include mdc-text-field-outlined-density(compact);
+
+    &.is-rounded {
+      @include mdc-text-field-outlined-density(compact, $shape-radius: 50%);
+    }
+  }
+
+  &.dense-comfortable {
+    @include mdc-text-field-outlined-density(comfortable);
+
+    &.is-rounded {
+      @include mdc-text-field-outlined-density(comfortable, $shape-radius: 50%);
+    }
+  }
+
+  &.dense-default {
+    @include mdc-text-field-outlined-density(default);
+
+    &.is-rounded {
+      @include mdc-text-field-outlined-density(default, $shape-radius: 50%);
+    }
+  }
+}

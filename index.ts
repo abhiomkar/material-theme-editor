@@ -1,4 +1,11 @@
 import './components/button/button.ts';
+import './components/icon-button/icon-button.ts';
+import './components/chip/chip.ts';
+import './components/checkbox/checkbox.ts';
 import './components/text-field/text-field.ts';
+import './components/logo/logo.ts';
 import './components/toggle-button/toggle-button.ts';
+import './components/theme-control/theme-control.ts';
+import './components/section-title/section-title.ts';
+import './components/ripple/ripple.ts';
 import './app/density.ts';

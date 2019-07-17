@@ -35,7 +35,7 @@ export class ToggleButton extends LitElement {
   }
 
   emit(detail) {
-    let event = new CustomEvent('changed', {bubbles: true, detail});
+    let event = new CustomEvent('changed', {bubbles: true, composed: true, detail});
     this.dispatchEvent(event);
   }
 
@@ -77,6 +77,7 @@ export class ToggleButtonOption extends LitElement {
   render() {
     return html`
       <span role="radio"
+        tabindex="0"
         class=${this.rootClasses}
         aria-checked=${this.ariaCheckedValue}><slot></slot></span>
     `;
