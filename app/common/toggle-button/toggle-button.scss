@@ -1,7 +1,12 @@
 @import "@material/theme/variables";
 
-:host {
-  display: inline-block;
+.mdc-toggle-button {
+  border: 1px solid #dadce0;
+  color: #5f6368;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-flex;
+  overflow: hidden;
 }
 
 .mdc-toggle-button-option {

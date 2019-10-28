@@ -1,5 +1,8 @@
-@import "@material/button/mdc-button.scss";
 @import "@material/button/mixins";
+@import "../common/toggle-button/toggle-button";
+@import "../common/section-title/section-title";
+@import "./layout";
+@import "../common/logo/logo";
 
 .mdc-button {
   &.dense--3,

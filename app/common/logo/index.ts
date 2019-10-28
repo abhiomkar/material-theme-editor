@@ -1,26 +1,18 @@
-import { customElement, html, LitElement, property, css, unsafeCSS } from 'lit-element';
+import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
-import styles from './logo.scss';
 
-@customElement('mdc-logo')
-export class Logo extends LitElement {
-  @property({type: String})
-  classes  = '';
+interface LogoOptions {
+  title: string,
+  classes: Object,
+}
 
-  get rootClasses() {
-    return classMap({
-      'mdc-logo': true,
-      ...this.classes && {[this.classes]: true},
-    });
-  }
+export const logo = ({ classes, title }: Partial<LogoOptions> = {}) => {
+  const rootClasses = classMap(Object.assign({}, {
+    'mdc-logo': true,
+  }, classes));
 
-  static get styles() {
-    return [css`${unsafeCSS(styles)}`];
-  }
-
-  render() {
-    return html`
-      <div class="logo">
+  return html`
+      <div class=${rootClasses}>
         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
             <path d="M23.8461538,12 C23.8461538,5.46307692 18.5369231,0.153846154 12,0.153846154 C5.46307692,0.153846154 0.153846154,5.46307692
@@ -50,7 +42,6 @@ export class Logo extends LitElement {
             </g>
           </g>
         </svg>
-        <span class="logo-title"><slot></slot></span>
+        <span class="logo-title">${title}</span>
       </div>`;
-  }
 }
