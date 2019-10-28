@@ -1,37 +1,50 @@
 import { html, render } from 'lit-html';
-import './density.scss';
 import { toggleButton, toggleButtonOption } from '../common/toggle-button';
 import { button } from '../../components/button';
+import { iconButton } from '../../components/icon-button';
+import { chip } from '../../components/chip';
 import { logo } from '../common/logo';
+import {Store} from './store';
+import './density.scss';
 
 interface AppStore {
   densityScale: string,
+  shape: string,
 }
+
+const store = new Store({
+  densityScale: 'default',
+  shape: 'default',
+});
 
 export const app = (store: Partial<AppStore> = {}) => {
   return html`
   <div class="mdc-theme-control">
     ${logo({ title: 'Density Demo' })}
-    <div class="row">
+    <div class="control-row">
       ${densityScaleControls(store.densityScale)}
+      ${shapeControls(store.shape)}
     </div>
   </div>
   <div class="mdc-divider"></div>
   <div class="component-columns">
     <section class="components">
       ${buttonSection(store)}
+      ${iconButtonSection(store)}
+      ${chipSection(store)}
     </section>
   </div>
   `;
 };
 
 const buttonSection = (store: Partial<AppStore> = {}) => {
-  const { densityScale } = store;
+  const { densityScale, shape } = store;
 
   const classes = {
     'dense-default': densityScale === 'default',
     'dense-comfortable': densityScale === 'comfortable',
     'dense-compact': densityScale === 'compact',
+    'is-rounded': shape === 'rounded',
   };
 
   return html`
@@ -42,8 +55,56 @@ const buttonSection = (store: Partial<AppStore> = {}) => {
         ${button({ label: 'Button', classes })}
         ${button({ label: 'Button', outlined: true, classes })}
       </div>
+      <div class="row row-flex">
+        ${button({ label: 'Button', iconName: 'add', raised: true, classes })}
+        ${button({ label: 'Button', iconName: 'add', classes })}
+        ${button({ label: 'Button', iconName: 'add', outlined: true, classes })}
+      </div>
     </section>
   `;
+};
+
+const iconButtonSection = (store: Partial<AppStore> = {}) => {
+  const { densityScale } = store;
+
+  const classes = {
+    'dense-default': densityScale === 'default',
+    'dense-comfortable': densityScale === 'comfortable',
+    'dense-compact': densityScale === 'compact',
+  };
+
+  return html`
+    <section class="component">
+      <div class="section-title">Icon Button</div>
+      <div class="row">
+        ${iconButton({iconName: 'format_underline', ariaLabel: 'Format underline', classes})}
+        ${iconButton({iconName: 'attach_file', ariaLabel: 'Attach file', classes})}
+        ${iconButton({iconName: 'link', ariaLabel: 'Add link', classes})}
+        ${iconButton({iconName: 'tag_faces', ariaLabel: 'Add smiley', classes})}
+      </div>
+    </section>`;
+};
+
+const chipSection = (store: Partial<AppStore> = {}) => {
+  const { densityScale } = store;
+
+  const classes = {
+    'dense-default': densityScale === 'default',
+    'dense-comfortable': densityScale === 'comfortable',
+    'dense-compact': densityScale === 'compact',
+  };
+
+  return html`
+    <section class="component">
+      <div class="section-title">Chips</div>
+      <div class="row">
+        <div class="mdc-chip-set" role="grid">
+          ${chip({label: 'Turn on lights', iconName: 'wb_sunny', classes})}
+          ${chip({label: 'Set alarm', iconName: 'alarm', classes})}
+          ${chip({label: 'Play music', iconName: 'music_note', classes})}
+        </div>
+      </div>
+    </section>`;
 };
 
 const densityScaleControls = (densityScale) => {
@@ -69,14 +130,41 @@ const densityScaleControls = (densityScale) => {
 
 const handleDensityScaleChange = (event) => {
   const densityScale = event.target.getAttribute('data-value');
-  rerender({ densityScale });
+  store.set({densityScale});
+  rerender(store.get());
+};
+
+const shapeControls = (shape) => {
+  if (shape == undefined) {
+    shape = 'default';
+  }
+
+  const toggleButtonOptions = html`
+    ${toggleButtonOption(({ label: 'Default', value: 'default', selected: (shape == 'default') }))}
+    ${toggleButtonOption(({ label: 'Rounded', value: 'rounded', selected: (shape == 'rounded') }))}
+  `;
+
+  return html`
+  <div class="control">
+    <span class="control-label">Shape</span>
+    ${toggleButton({
+    children: toggleButtonOptions,
+    onChange: handleShapeChange,
+  })}
+  </div>`;
+};
+
+const handleShapeChange = (event) => {
+  const shape = event.target.getAttribute('data-value');
+  store.set({shape});
+  rerender(store.get());
 };
 
 const rerender = (store: Partial<AppStore> = {}) => {
   return render(app(store), document.querySelector('.app'));
 }
 
-rerender();
+rerender(store.get());
 
 // 'is-rounded': this.rounded === true,
 // 'dense--3': this.density === '-3',

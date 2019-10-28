@@ -1,9 +1,17 @@
+@import "@material/button/mdc-button";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/chips/mdc-chips";
 @import "@material/button/mixins";
+@import "@material/icon-button/mixins";
+@import "@material/chips/mixins";
 @import "../common/toggle-button/toggle-button";
 @import "../common/section-title/section-title";
-@import "./layout";
 @import "../common/logo/logo";
+@import "./layout";
 
+//
+// Button
+//
 .mdc-button {
   &.dense--3,
   &.dense-compact {
@@ -38,5 +46,39 @@
     &.is-rounded {
       @include mdc-button-shape-radius(50%);
     }
+  }
+}
+
+//
+// Icon Button
+//
+.mdc-icon-button {
+  &.dense-compact {
+    @include mdc-icon-button-density(-5);
+  }
+
+  &.dense-comfortable {
+    @include mdc-icon-button-density(-3);
+  }
+
+  &.dense-default {
+    @include mdc-icon-button-density(0);
+  }
+}
+
+//
+// Chip
+//
+.mdc-chip {
+  &.dense-compact {
+    @include mdc-chip-density(-2);
+  }
+
+  &.dense-comfortable {
+    @include mdc-chip-density(-1);
+  }
+
+  &.dense-default {
+    @include mdc-chip-density(0);
   }
 }
