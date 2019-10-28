@@ -22,7 +22,7 @@ export class Button extends LitElement {
     return html`
       <div class=${this.rootClasses}>
         <div class="row">
-          <mdc-logo>Density Prototype</mdc-logo>
+          <mdc-logo>Density Demo</mdc-logo>
         </div>
 
         <div class="row">

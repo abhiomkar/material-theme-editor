@@ -7,7 +7,7 @@
     @include mdc-button-density(-3);
 
     &.is-rounded {
-      @include mdc-button-density(-3, $shape-radius: 50%);
+      @include mdc-button-shape-radius(50%, $density-scale: -3);
     }
   }
 
@@ -16,7 +16,7 @@
     @include mdc-button-density(-2);
 
     &.is-rounded {
-      @include mdc-button-density(-2, $shape-radius: 50%);
+      @include mdc-button-shape-radius(50%, $density-scale: -2);
     }
   }
 
@@ -24,16 +24,16 @@
     @include mdc-button-density(-1);
 
     &.is-rounded {
-      @include mdc-button-density(-1, $shape-radius: 50%);
+      @include mdc-button-shape-radius(50%, $density-scale: -1);
     }
   }
 
   &.dense--0,
   &.dense-default {
-    @include mdc-button-density(-0);
+    @include mdc-button-density(0);
 
     &.is-rounded {
-      @include mdc-button-density(0, $shape-radius: 50%);
+      @include mdc-button-shape-radius(50%);
     }
   }
 }

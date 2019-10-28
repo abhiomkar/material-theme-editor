@@ -3,14 +3,14 @@
 
 .mdc-chip {
   &.dense-compact {
-    @include mdc-chip-density(compact);
+    @include mdc-chip-density(-2);
   }
 
   &.dense-comfortable {
-    @include mdc-chip-density(comfortable);
+    @include mdc-chip-density(-1);
   }
 
   &.dense-default {
-    @include mdc-chip-density(default);
+    @include mdc-chip-density(0);
   }
 }

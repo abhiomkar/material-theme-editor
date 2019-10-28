@@ -9,52 +9,52 @@
 
 .mdc-text-field--default {
   &.dense-compact {
-    @include mdc-text-field-density(compact);
+    @include mdc-text-field-density(-4);
 
     &.is-rounded {
-      @include mdc-text-field-density(compact, $shape-radius: 50%);
+      @include mdc-text-field-shape-radius(50%, $text-field-height: 40px);
     }
   }
 
   &.dense-comfortable {
-    @include mdc-text-field-density(comfortable);
+    @include mdc-text-field-density(-2);
 
     &.is-rounded {
-      @include mdc-text-field-density(comfortable, $shape-radius: 50%);
+      @include mdc-text-field-shape-radius(50%, $text-field-height: 48px);
     }
   }
 
   &.dense-default {
-    @include mdc-text-field-density(default);
+    @include mdc-text-field-density(0);
 
     &.is-rounded {
-      @include mdc-text-field-density(default, $shape-radius: 50%);
+      @include mdc-text-field-shape-radius(50%);
     }
   }
 }
 
 .mdc-text-field--outlined {
   &.dense-compact {
-    @include mdc-text-field-outlined-density(compact);
+    @include mdc-text-field-outlined-density(-4);
 
     &.is-rounded {
-      @include mdc-text-field-outlined-density(compact, $shape-radius: 50%);
+      @include mdc-text-field-outline-shape-radius(50%, $text-field-height: 40px);
     }
   }
 
   &.dense-comfortable {
-    @include mdc-text-field-outlined-density(comfortable);
+    @include mdc-text-field-outlined-density(-2);
 
     &.is-rounded {
-      @include mdc-text-field-outlined-density(comfortable, $shape-radius: 50%);
+      @include mdc-text-field-outline-shape-radius(50%, $text-field-height: 48px);
     }
   }
 
   &.dense-default {
-    @include mdc-text-field-outlined-density(default);
+    @include mdc-text-field-outlined-density(0);
 
     &.is-rounded {
-      @include mdc-text-field-outlined-density(default, $shape-radius: 50%);
+      @include mdc-text-field-outline-shape-radius(50%);
     }
   }
 }

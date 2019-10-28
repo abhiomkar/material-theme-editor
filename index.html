@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Density Demo</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./dist/bundle.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Roboto,sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure,
+      footer, header, hgroup, menu, nav, section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      blockquote, q {
+        quotes: none;
+      }
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+        content: '';
+        content: none;
+      }
+
+      .row {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        width: 380px;
+      }
+
+      .row-flex {
+        display: flex;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+      }
+
+      .align-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .component-columns {
+        margin: 0 auto;
+        max-width: 840px;
+        padding-left: 12px;
+        padding-right: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .component {
+        margin-bottom: 24px;
+        max-width: 420px;
+        margin-right: 24px;
+      }
+
+      mdc-button,
+      mdc-icon-button {
+        --material-icons: 'Material Icons';
+      }
+
+      mdc-text-field {
+        width: 360px;
+        margin-bottom: 24px;
+        display: inline-block;
+      }
+
+      mdc-chip,
+      mdc-checkbox {
+        margin-right: 8px;
+      }
+    </style>
+
+    <main>
+      <mdc-theme-control></mdc-theme-control>
+      <div class="component-columns">
+        <section class="components">
+          <!-- Button -->
+          <section class="component">
+            <section-title>Button</section-title>
+            <div class="row row-flex">
+              <mdc-button raised>Button</mdc-button>
+              <mdc-button>Button</mdc-button>
+              <mdc-button outlined>Button</mdc-button>
+            </div>
+            <div class="row row-flex">
+              <mdc-button icon="add" raised>Button</mdc-button>
+              <mdc-button icon="add">Button</mdc-button>
+              <mdc-button icon="add" outlined>Button</mdc-button>
+            </div>
+          </section>
+
+          <!-- Icon Button -->
+          <section class="component">
+            <section-title>Icon Button</section-title>
+            <div class="row">
+              <mdc-icon-button icon="favorite"></mdc-icon-button>
+              <mdc-icon-button icon="add"></mdc-icon-button>
+              <mdc-icon-button icon="mic_none"></mdc-icon-button>
+            </div>
+          </section>
+
+          <!-- Chips -->
+          <section class="component">
+            <section-title>Chips</section-title>
+            <div class="row align-center">
+              <mdc-chip>Body 2</mdc-chip>
+              <mdc-chip icon="check">Body 2</mdc-chip>
+              <mdc-chip icon="check">Body 2</mdc-chip>
+            </div>
+          </section>
+
+          <!-- Checkbox -->
+          <section class="component">
+            <section-title>Checkbox</section-title>
+            <div class="row">
+              <mdc-checkbox></mdc-checkbox>
+              <mdc-checkbox checked></mdc-checkbox>
+              <mdc-checkbox indeterminate></mdc-checkbox>
+            </div>
+          </section>
+        </section>
+
+        <section class="components">
+          <!-- Text Field -->
+          <section class="component">
+            <section-title>Text Field</section-title>
+            <div class="row">
+              <mdc-text-field label="Label" helperText="Assistive text" trailingIcon="remove_red_eye" outlined></mdc-text-field>
+              <mdc-text-field label="Label" helperText="Assistive text" outlined></mdc-text-field>
+              <mdc-text-field label="Standard" value="Pre-filled" helperText="Assistive text" outlined></mdc-text-field>
+              <mdc-text-field label="Label" helperText="Assistive text"></mdc-text-field>
+              <mdc-text-field label="Label" value="Pre-filled" helperText="Assistive text"></mdc-text-field>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

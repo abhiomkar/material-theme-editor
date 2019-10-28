@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "lit-element": "^2.2.0",
+    "material-components-web": "4.0.0-canary.b06c0efe.0",
     "rollup": "^1.16.2"
   },
   "devDependencies": {

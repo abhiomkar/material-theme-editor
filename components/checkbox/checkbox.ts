@@ -34,7 +34,6 @@ export class Checkbox extends LitElement {
   }
 
   layout() {
-    this.checkbox.layout();
   }
 
   get rootClasses() {

@@ -3,14 +3,14 @@
 
 .mdc-icon-button {
   &.dense-compact {
-    @include mdc-icon-button-density(compact);
+    @include mdc-icon-button-density(-5);
   }
 
   &.dense-comfortable {
-    @include mdc-icon-button-density(comfortable);
+    @include mdc-icon-button-density(-3);
   }
 
   &.dense-default {
-    @include mdc-icon-button-density(default);
+    @include mdc-icon-button-density(0);
   }
 }
